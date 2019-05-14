@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="ntp_server_address" default="0.0.0.0"/>
+    <arg name="sudo_password" default="PASSWORD"/>
+    <node pkg="ntp_configuration" type="ntp_configuration_node.py" name="ntp_configuration" output="log" respawn="false" respawn_delay="0">
+        <param name="sudo_password" value="$(arg sudo_password)"/>
+        <param name="ntp_server_address" value="$(arg ntp_server_address)"/>
+    </node>
+</launch>
